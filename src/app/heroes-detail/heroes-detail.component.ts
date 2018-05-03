@@ -1,3 +1,5 @@
+/*
+
 import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from "../model/heroes";
 
@@ -16,3 +18,5 @@ export class HeroesDetailComponent implements OnInit {
   }
 
 }
+
+*/

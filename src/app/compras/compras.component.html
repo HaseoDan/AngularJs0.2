@@ -1,0 +1,50 @@
+<div>
+  <h1>Lista de compras</h1>
+  <ul>
+    <!--
+      *ngFor -> Diretiva: imprime todos os dados de lista no controlador
+
+      (click) -> Event Biding: executa o metodo selected do controlador e passa o parametro compra (Objeto compra clicando)
+
+      [class.selected] -> Aplica o estilo .selected na compra selecionada
+
+      compra.valor | currency:'BRL':true -> Aplica o formato monetario ao valor
+     -->
+  <li *ngFor="let compras of lista" (click)="selected(compras)" [class.selected]="compras === selectedCompra">
+      {{compras.produto}}
+    {{compras.valor | currency:'BRL':true}}
+  </li>
+  </ul>
+</div>
+<!-- [(ngModule)] ->Faz o vinculo com o atributo do controlador -->
+<div class="container">
+
+  <h2>Nova Compra</h2>
+
+    <label>ID</label>
+  <input type="text" [(ngModel)]="compra.id" nome="produto" >
+  <br />
+
+  <label>Produto</label>
+  <input type="text" [(ngModel)]="compra.produto" nome="produto" >
+  <br />
+   <label>Quantidade</label>
+  <input type="text" [(ngModel)]="compra.quantidade" nome="produto" >
+  <br />
+
+   <label>Valor</label>
+  <input type="text" [(ngModel)]="compra.valor" nome="produto" >
+  <br />
+  
+  <button (click)="add()">Adicionar</button>
+
+</div>
+<!-- *ngIf -> Mostra/oculta elementos, neste caso mostra se existir um objeto em selectedCompra -->
+
+<div class="container" *ngIf="selectedCompra">
+  <h3>Detalhes</h3>
+  <p>ID:   {{selectedCompra.id}}</p>
+  <p>Produto:  {{selectedCompra.produto}}</p>
+  <p>Quantidade:  {{selected.quantidade}}</p>
+  <p>Valor:  {{selected.valor  |  currency:'BRL':true}}</p>
+</div>
